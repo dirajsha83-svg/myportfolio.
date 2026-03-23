@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Webpage</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; margin: 0; color: #333; }
+        header { background: #2c3e50; color: white; padding: 1rem 0; text-align: center; position: sticky; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .hero { padding: 100px 20px; text-align: center; background: #f4f4f4; }
+        .container { width: 80%; margin: auto; overflow: hidden; padding: 40px 0; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .project-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; transition: transform 0.3s; }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, I'm Diraj sharma</h1>
+        <p>A passionate developer creating digital experiences.</p>
+    </section>
+
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>"Hey! I'm currently a student at Kristu Jayanti (Deemed to be University), where I'm diving deep into BSc AI & Machine Learning. Honestly, I’ve always been fascinated by how we can teach machines to think, so I spend most of my days figuring out data patterns and building cool projects. When I'm not stuck in front of a code editor, I’m probably exploring new tech trends or just hanging out!"</p>
+    </div>
+
+    <div class="container" id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Project card vision</h3>
+                <p>"A Machine Learning application that suggests movies based on content similarity. Built using Python and Scikit-Learn, it analyzes a dataset of 5,000+ films to find patterns in genres, cast, and keywords, providing personalized recommendations in real-time."</p>
+                <a href="#">View Code</a>
+            </div>
+            <div class="project-card">
+                <h3>project two</h3>
+                <p>"For my latest project, I wanted to solve the 'What should I watch tonight?' struggle. I built CineMatch, an AI assistant that actually 'gets' movie vibes. Instead of just looking at ratings, it looks at the DNA of the movie—the actors, the director, and the themes. It was a great way to put the Linear Algebra and Python skills I’m learning in my BSc AIML course into a real-world app!"</p>
+                <a href="#">View Code</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Get In Touch</h2>
+        <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>LinkedIn: <a href="#">linkedin.com/in/yourprofile</a></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 [Your Name]. Built with HTML & CSS.</p>
+    </footer>
+</body>
+</html>
