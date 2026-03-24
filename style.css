@@ -420,3 +420,15 @@ footer {
   background-color: #6366f1; /* Your blue/purple color */
   margin: 10px auto;
 }
+nav ul li a i {
+    margin-right: 8px; /* Spaces the icon away from the text */
+    color: #3498db;    /* Optional: Give your icons a specific theme color */
+    font-size: 1.1rem;
+}
+
+/* Optional: Keep icons and text on one line */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
