@@ -313,3 +313,50 @@ footer {
     font-size: 0.9rem;
     font-weight: 500;
 }
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    color: #60a5fa;
+}
+
+.contact-form input, 
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+#statusMessage {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
