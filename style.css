@@ -418,6 +418,5 @@ footer {
   width: 50px;            /* How long you want the blue bar */
   height: 4px;            /* How thick you want the blue bar */
   background-color: #6366f1; /* Your blue/purple color */
-  margin: 10px 0 20px 0;  /* Centers it and adds space below */
-  border-radius: 10px;
+  margin: 10px auto;
 }
