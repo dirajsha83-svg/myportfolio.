@@ -432,3 +432,6 @@ nav ul {
     list-style: none;
     gap: 20px;
 }
+html {
+  scroll-behavior: smooth;
+}
