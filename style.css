@@ -63,52 +63,53 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+/* 1. Ensure the Navigation stays at the top and doesn't float over text randomly */
 header {
-    height: 80vh;
+    position: sticky; /* Or fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #0f172a; /* Match your background */
+}
+
+/* 2. Add padding to sections so headings aren't hidden under the nav */
+section {
+    padding: 80px 10%; /* Top/Bottom padding gives breathing room */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Centers the "My Projects" and "About Me" titles */
     text-align: center;
-    padding: 0 1rem;
 }
 
-header h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    background: linear-gradient(to right, #6366f1, #a855f7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-}
-
-header p {
-    font-size: 1.2rem;
-    color: var(--text-dim);
-    max-width: 600px;
-}
-
-section {
-    max-width: 1000px;
-    margin: 4rem auto;
-    padding: 2rem;
-}
-
+/* 3. Style the Blue Headings and the Underline */
 h2 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
+    color: #60a5fa; /* That nice light blue from your screenshot */
+    margin-bottom: 10px;
     position: relative;
 }
 
+/* This creates that purple line under your titles properly */
 h2::after {
-    content: "";
+    content: '';
     display: block;
     width: 50px;
     height: 4px;
-    background: var(--primary-color);
-    margin: 10px auto;
+    background: #6366f1; /* Purple color */
+    margin: 10px auto 30px; /* Centers the underline */
     border-radius: 2px;
+}
+
+/* 4. Ensure project cards are below the title, not overlapping */
+.projects-container {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
 }
 
 #about p {
@@ -197,3 +198,51 @@ footer {
     header h1 { font-size: 2.5rem; }
     nav { gap: 1rem; }
 }
+#skills {
+    background-color: #0f172a; /* Keeps it consistent with your dark theme */
+    padding: 60px 10%;
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-box {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+/* The background bar */
+.skill-bar {
+    height: 10px;
+    width: 100%;
+    background: #1e293b;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The actual progress color */
+.skill-per {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #22d3ee); /* Indigo to Cyan gradient */
+    border-radius: 10px;
+    width: 0; /* Starts at 0 for animation */
+    transition: width 1.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Set the specific widths */
+.python { width: 90%; }
+.ml { width: 85%; }
+.web { width: 75%; }
