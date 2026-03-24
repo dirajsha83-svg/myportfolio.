@@ -360,3 +360,46 @@ footer {
     margin-top: 15px;
     font-size: 0.9rem;
 }
+.skills-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px;
+    width: 280px;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: #007bff; /* Add a primary color glow */
+}
+
+.skill-card h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    padding: 8px 0;
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+}
