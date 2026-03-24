@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
 
             // 1. SETTINGS: Get these from your TiDB Data Service Dashboard
-            const url = 'https://ap-southeast-1.data.tidbcloud.com/api/v1beta/app/dataapp-xxxx/endpoint/message-save'; 
-            const publicKey = 'YOUR_PUBLIC_KEY';
-            const privateKey = 'YOUR_PRIVATE_KEY';
+            const url = 'https://ap-southeast-1.data.tidbcloud.com/api/v1beta/app/dataapp-YZHtQoXh/endpoint/message__save'; 
+            const publicKey = 'G3144U20';
+            const privateKey = '25c85663-6927-423e-a17f-162914632c39';
 
             // 2. DATA: Gathering info from your form inputs
             const btn = contactForm.querySelector('button');
