@@ -403,3 +403,21 @@ footer {
 .skill-list li:last-child {
     border-bottom: none;
 }
+/* This targets the <div> on line 36 and 41 */
+.container {
+  display: flex;
+  flex-direction: column; /* Stacks the H2, the underline, and the P tag */
+  align-items: center;    /* This centers them all horizontally */
+  text-align: center;     /* This ensures the text inside the P tag is centered */
+  width: 100%;
+  margin: 40px auto;      /* Adds spacing between sections */
+}
+
+/* This targets your underline on line 38 */
+.underline {
+  width: 50px;            /* How long you want the blue bar */
+  height: 4px;            /* How thick you want the blue bar */
+  background-color: #6366f1; /* Your blue/purple color */
+  margin: 10px 0 20px 0;  /* Centers it and adds space below */
+  border-radius: 10px;
+}
