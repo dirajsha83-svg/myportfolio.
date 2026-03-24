@@ -1,40 +1,54 @@
-const contactForm = document.getElementById('contactForm');
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    // 1. Paste your unique URL here
-    const url = 'https://ap-southeast-1.data.tidbcloud.com/api/v1beta/app/dataapp-.../endpoint'; 
-    
-    // 2. Paste your API Keys here
-    const publicKey = 'YOUR_PUBLIC_KEY';
-    const privateKey = 'YOUR_PRIVATE_KEY';
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-    const data = {
-        name: document.getElementById('userName').value,
-        email: document.getElementById('userEmail').value,
-        message: document.getElementById('userMessage').value
-    };
+            // 1. SETTINGS: Get these from your TiDB Data Service Dashboard
+            const url = 'https://ap-southeast-1.data.tidbcloud.com/api/v1beta/app/dataapp-xxxx/endpoint/message-save'; 
+            const publicKey = 'YOUR_PUBLIC_KEY';
+            const privateKey = 'YOUR_PRIVATE_KEY';
 
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // This encodes your keys for security
-                'Authorization': 'Basic ' + btoa(publicKey + ':' + privateKey)
-            },
-            body: JSON.stringify(data)
+            // 2. DATA: Gathering info from your form inputs
+            const btn = contactForm.querySelector('button');
+            const originalBtnText = btn.innerText;
+            
+            const data = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('userEmail').value,
+                message: document.getElementById('userMessage').value
+            };
+
+            // Loading state
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Basic ' + btoa(publicKey + ':' + privateKey)
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert("✔ Success! Your message has been saved in Diraj's TiDB database.");
+                    contactForm.reset();
+                } else {
+                    const errorData = await response.json();
+                    console.error("Database Error:", errorData);
+                    alert("❌ Failed to save. Check TiDB Endpoint settings.");
+                }
+            } catch (error) {
+                console.error("Network Error:", error);
+                alert("❌ Connection Error. Make sure your TiDB endpoint is Deployed.");
+            } finally {
+                btn.innerText = originalBtnText;
+                btn.disabled = false;
+            }
         });
-
-        if (response.ok) {
-            alert("Success! Your message has been saved to the TiDB Cloud Database.");
-            contactForm.reset(); // Clears the form for the next user
-        } else {
-            alert("Database connection failed. Please check your API keys or URL.");
-        }
-    } catch (error) {
-        console.error("Network Error:", error);
-        alert("Unable to reach TiDB Cloud. Check your internet connection.");
     }
 });
