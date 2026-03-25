@@ -435,3 +435,16 @@ nav ul {
 html {
   scroll-behavior: smooth;
 }
+.hero-container {
+  display: flex;         /* This is the magic line for side-by-side */
+  align-items: center;   /* Keeps text and image leveled horizontally */
+  justify-content: center; 
+  gap: 40px;             /* Adds space between the text and the photo */
+  padding: 50px;
+}
+
+.hero-image img {
+  width: 300px;          /* Adjust size as needed */
+  border-radius: 15px;   /* Optional: rounds the corners of your photo */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
