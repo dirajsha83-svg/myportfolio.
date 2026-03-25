@@ -1,20 +1,36 @@
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const serverMessage = document.getElementById('servermessage');
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+            
+            const data = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('userEmail').value,
+                message: document.getElementById('userMessage').value
+            };
 
-  fetch("http://localhost:3000/contact", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ name, email, message })
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("responseMessage").innerText = data.message;
-  })
-  .catch(err => console.error(err));
+            serverMessage.innerText = "Sending...";
+
+            try {
+                const response = await fetch('/contact', { // Changed to relative path
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                serverMessage.innerText = result.message;
+                
+                if (response.ok) {
+                    contactForm.reset();
+                }
+            } catch (error) {
+                serverMessage.innerText = "Error: Backend not reachable.";
+                console.error("Error:", error);
+            }
+        });
+    }
 });
